@@ -1,0 +1,170 @@
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    line-height: 2.2rem;
+}
+
+.container {
+    max-width: $max-width;
+    @extend .u-center;
+}
+
+.header {
+    width: 100%;
+    margin: 0;
+    height: 24rem;
+    border-radius: 0 0 3rem 3rem;
+    -webkit-border-radius: 0 0 3rem 3rem;
+    -moz-border-radius: 0 0 3rem 3rem;
+    -ms-border-radius: 0 0 3rem 3rem;
+    -o-border-radius: 0 0 3rem 3rem;
+    & &__container {
+        padding: 40px 0;
+        justify-content: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+    }
+    // custom toggle switcher
+    .mode {
+        justify-self: end;
+        padding: 0 10px;
+    }
+}
+
+.hero {
+    margin-top: -8.7rem;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    align-items: center;
+}
+
+.card-row-container {
+    @extend .hero-container;
+    margin: 2.5rem 0;
+}
+
+body {
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+
+.dark {
+    color: $white;
+    background-color: $primary-dark;
+    .header {
+        background-color: $primary-dark-1;
+    }
+    .text-muted {
+        color: $light-toggler;
+    }
+    .card {
+        background-color: $secondary-dark;
+        &:hover {
+            background-color: $secondary-dark-1;
+        }
+    }
+}
+
+.light {
+    color: $dark;
+    background-color: $primary-light;
+    .header {
+        background-color: $primary-light-1;
+    }
+    .text-muted {
+        color: $light-toggler;
+    }
+    .card {
+        background-color: $secondary-light;
+        &:hover {
+            background-color: lighter($secondary-light-1);
+        }
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .container {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+    .header {
+        & &__container {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+        }
+        .mode {
+            justify-self: end;
+            padding: 0 10px;
+            width: 100%;
+        }
+        // custom toggle switcher
+    }
+    .hero-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 30px;
+        align-items: center;
+    }
+    .card__hero {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .container {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+    .header {
+        & &__container {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+        }
+        .mode {
+            justify-self: end;
+            padding: 0 10px;
+            width: 100%;
+        }
+        // custom toggle switcher
+    }
+    .hero {
+        margin-top: 0;
+    }
+    .main-head {
+        font-size: 2rem;
+    }
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    .card-row-container {
+        margin-bottom: 2.5rem;
+    }
+    .card__regular:not(:last-of-type),
+    .card__hero {
+        margin-bottom: 25px;
+    }
+}
